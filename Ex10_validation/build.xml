@@ -1,0 +1,20 @@
+<project name="ex10_validation" basedir="." default="deploy">
+    <property name="appname" value="${ant.project.name}" />
+
+    <import file="../build-common.xml" />
+    
+    <property name="rest.url" 
+              value="http://localhost:8080/${appname}/rs/item" />
+    
+    <target name="deploy"
+            depends="common.deploy"
+            description="Deploys the web service">
+        <echo>To test the service, send a GET request to ${rest.url}/all</echo>
+    </target>
+    
+    <target name="debug" 
+            depends="common.debug" 
+            description="Dumps values of Ant properties">
+        <echo>$${rest.url} = ${rest.url}</echo>
+    </target>
+</project>

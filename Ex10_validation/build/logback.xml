@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%logger{0} %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+        <!-- file location is relative to GLASSFISH_INSTALL_DIR/glassfish/domains/domain1/config -->
+        <file>../logs/ex10_validation.log</file> 
+        <append>true</append>
+        <!-- encoders are assigned the type ch.qos.logback.classic.encoder.PatternLayoutEncoder 
+            by default -->
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} %-5level %logger{0} %msg%n%exception{10}</pattern>
+        </encoder>
+        <!-- Pattern layout: http://logback.qos.ch/manual/layouts.html
+             %d         Date 
+             %-5level   Message level (debug, info, etc.)   
+             %logger{0} Name of logger (class) with 0 characters of package info
+             %msg       Message
+             %n         Newline
+             %exception{full}  Full exception stack trace -->
+    </appender>
+
+    <logger name="com.ltree" level="TRACE" />
+    <logger name="com.rf" level="TRACE" />
+    <logger name="com.gdr" level="TRACE" />
+
+    <root level="INFO">
+        <appender-ref ref="STDOUT" />
+        <appender-ref ref="FILE" />
+    </root>
+    
+</configuration>

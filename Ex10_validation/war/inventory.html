@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href="style/inventory.css" media="screen" rel="stylesheet" type="text/css"/>
+</head>
+<body onload="start()">
+	<article id="content">
+		<section>
+		<h1>Inventory Management Web Service</h1>
+		<p>This page issues HTTP GET, PUT, POST, DELETE requests 
+		based on user interactions to a simple inventory store. 
+		The pages uses javascript's XMLHttpRequest to issue these HTTP requests. 
+		The inventory store is implemented as a RESTful web service and the inventory 
+		items are accessed and updated as URL resources. </p>
+		<hr /> 
+		</section>
+		<section id="inventory">
+		</section>
+	</article>
+	<div id="ajaxResults">Ajax request in progress</div>
+<script src="js/jquery-min-1.9.js"></script>	
+<script src="js/inventory.js"></script>
+	
+</body>
+</html>

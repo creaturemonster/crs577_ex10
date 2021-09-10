@@ -1,0 +1,10 @@
+<project name="ex10_validation_client" basedir="." default="debug">
+    <property name="appname" value="${ant.project.name}" />
+
+    <import file="../build-common.xml" />
+    
+    <target name="debug" 
+            depends="common.debug" 
+            description="Dumps values of Ant properties">
+    </target>
+</project>

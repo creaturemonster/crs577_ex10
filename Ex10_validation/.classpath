@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="var" path="CRS577_LIB/appserv-rt.jar"/>
+	<classpathentry kind="var" path="CRS577_LIB/commons-lang3-3.3.2.jar"/>
+	<classpathentry kind="var" path="CRS577_LIB/javaee.jar"/>
+	<classpathentry kind="var" path="CRS577_LIB/javax.ws.rs-api-2.0.jar"/>
+	<classpathentry kind="var" path="CRS577_LIB/slf4j-api-1.7.7.jar"/>
+	<classpathentry kind="var" path="CRS577_LIB/javax.inject.jar"/>
+	<classpathentry kind="var" path="CRS577_LIB/weld-osgi-bundle.jar"/>
+	<classpathentry kind="var" path="CRS577_LIB/bean-validator.jar"/>
+	<classpathentry kind="var" path="CRS577_LIB/jersey/lib/jersey-common.jar"/>
+	<classpathentry kind="var" path="CRS577_LIB/jersey/lib/jersey-server.jar"/>
+	<classpathentry kind="var" path="CRS577_LIB/unitTest/easymock-3.2.jar"/>
+	<classpathentry kind="var" path="CRS577_LIB/unitTest/junit-4.11.jar"/>
+        <classpathentry kind="var" path="CRS577_LIB/unitTest/hamcrest-core-1.3.jar"/>
+	<classpathentry kind="var" path="CRS577_LIB/unitTest/powermock-easymock-1.5.4-full.jar"/>
+	<classpathentry kind="output" path="build"/>
+</classpath>

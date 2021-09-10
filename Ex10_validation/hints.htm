@@ -1,0 +1,98 @@
+<html>
+<body>
+<h2>Hints for Exercise 10.1</h2>
+
+<h3>InventoryEndpointImpl.java</h3>
+
+<pre><font color="grey">
+    // TODO: Add validation constraints to the id parameter:
+    //       1. id must not be null
+    //       2. minimum id value is 1
+    //       3. maximum id value is 999999999
+    public Response doDelete(</font><font color="blue">@NotNull @Min(1) @Max(999999999)</font><font color="grey"> @PathParam("productId") int id ) {
+    ...
+
+    // TODO: Add a constraint so all the properties of the Item parameter are validated
+    public String doPost(</font><font color="blue">@Valid</font><font color="grey"> Item item) throws WebApplicationException {
+    ...
+
+    // TODO:
+    // 1. Add validation constraints to the id parameter: not null, min = 1, max = 999999999.
+    // 2. Define custom error messages for each validation
+    // 3. Ensure that all the properties of the Item parameter are validated
+    public Response doPut(</font><font color="blue">@NotNull(message="Product ID is required")
+                          @Min(value=1, message="Product ID must be 1 or greater")
+                          @Max(value=999999999, message="Product ID is exceeds maxiumum") </font><font color="grey">
+                          @PathParam("productId") int id, </font><font color="blue">
+                          @Valid</font><font color="grey"> Item item)
+                    throws WebApplicationException {
+            ...
+</font></pre>
+
+<h3>Item.java</h3>
+
+<pre><font color="grey">
+public class Item {
+    // TODO: Add validation constraints to the productId field:
+    //       1. id must not be null
+    //       2. minimum id value is 1
+    //       3. maximum id value is 999999999 </font><font color="blue">
+    @NotNull(message="Item product ID is required") 
+    @Min(value=1, message="Item product ID must be 1 or greater") 
+    @Max(value=999999999, message="Item product ID is exceeds maxiumum") </font><font color="grey"> 
+    private int productId;
+
+    // TODO: Add validation constraints to the quantity field:
+    //       1. quantity must not be null
+    //       2. minimum quantity is 1
+    //       3. maximum quantity is 9999999 </font><font color="blue">
+    @NotNull(message="Item quantity is required") 
+    @Min(value=1, message="Item quantity must be 1 or greater") 
+    @Max(value=9999999, message="Item quantity exceeds maxiumum of 9999999")  </font><font color="grey">
+    private int quantity;
+
+    // TODO: Add a validation constraint to the productId field:
+    //       1. Max length of message is 80 characters </font><font color="blue">
+    @Size(max=80, message="Item description exceeds max length of 80 characters") </font><font color="grey">
+    private String description;
+</font></pre>
+
+<h3>BONUS</h3>
+
+<h3>ProductIdValidator.java</h3>
+
+<pre><font color="grey">
+@Retention(RetentionPolicy.RUNTIME)
+@Constraint(validatedBy = {})
+// TODO: Add validation constraints to the custom validator annotation:
+//       1. value must not be null
+//       2. minimum value is 1
+//       3. maximum value is 999999999
+//       Define message keys for all messages. Add messages to 
+//       config/ValidationMessages.properties </font><font color="blue">
+@NotNull(message="{product.id.missing}")
+@Min(value=1, message="{product.id.range.min}") 
+@Max(value=999999999, message="{product.id.range.max}") </font><font color="grey"> 
+public @interface ProductIdValidator {
+</font></pre>
+
+<h3>ValdationMessages.properties</h3>
+
+<pre><font color="grey">
+# TODO: Define messages referenced by your custom validator </font><font color="blue">
+product.id.missing=The product ID is missing.
+product.id.range.min=The product ID is 0 or negative. It must be within the range 1 to 999999999.
+product.id.range.max=The product ID is too large. It must be within the range 1 to 999999999.
+</font></pre>
+
+<h3>InventoryEndpointImpl.java</h3>
+
+<pre><font color="grey">
+// BONUS TODO: Validate the productId using your custom validation annotation
+public Item doGet(</font><font color="blue">@ProductIdValidator</font><font color="grey"> @PathParam("id") int productId) {
+    ...
+}
+</font></pre>
+
+</body>
+</html>
